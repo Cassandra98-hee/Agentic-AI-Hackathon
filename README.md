@@ -1,7 +1,7 @@
 # 🤖 Digital Health Agent 🤖
 
 ## 🧠 Overview
-An AI-powered digital health knowledge assistant built with Flowise to answer user questions using curated Mental Health, Medical, Nutrition, and Exercise Agents for educational purposes only. It does not provide medical diagnosis, treatment, or personalized medical advice and should not be considered a substitute for professional healthcare.
+An AI-powered digital health knowledge assistant built with Flowise to answer user questions using curated Mental Health, Medical, Nutrition, and Exercise Agents for educational purposes only. It does not provide medical diagnosis, treatment, or personalised medical advice and should not be considered a substitute for professional healthcare.
 
 ## ✨ Features
 - 🎯 Goal-based digital health & wellness support

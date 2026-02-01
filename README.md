@@ -14,7 +14,7 @@ An AI-powered digital health knowledge assistant built with Flowise to answer us
 - 📧 Conversation summary export via email
 
 ## 🤖 Agents
-- Supervisor Agent    : Orchestrates workflow and routes queries to appropriate specialised agents
+- Supervisor Agent    : Manages and directs workflow between agents
 - Nutrition Agent     : Provides meal planning, calorie calculations, and food image analysis
 - Exercise Agent      : Creates personalised workout plans with video demonstrations from a curated exercise database
 - Medical Agent       : Addresses physical health symptoms, injuries, and general wellness guidance

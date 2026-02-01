@@ -3,6 +3,10 @@
 ## 🧠 Overview
 An AI-powered digital health knowledge assistant built with Flowise to answer user questions using curated Mental Health, Medical, Nutrition, and Exercise Agents for educational purposes only. It does not provide medical diagnosis, treatment, or personalised medical advice and should not be considered a substitute for professional healthcare.
 
+## 📁 Files
+- `Digital Health Agent Agents.json` – Main agent workflow
+- `upsert-exercise-data.json` – Exercise database setup
+
 ## ✨ Features
 - 🎯 Goal-based digital health & wellness support
 - 🥗 Image-based food analysis with nutritional estimation

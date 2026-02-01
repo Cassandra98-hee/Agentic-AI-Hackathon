@@ -4,16 +4,16 @@
 An AI-powered digital health knowledge assistant built with Flowise to answer user questions using curated Mental Health, Medical, Nutrition, and Exercise Agents for educational purposes only. It does not provide medical diagnosis, treatment, or personalized medical advice and should not be considered a substitute for professional healthcare.
 
 ## ✨ Features
-🎯 Goal-based digital health & wellness support
-🥗 Image-based food analysis with nutritional estimation
-🧠 Mental health guidance & exercise recommendations (educational)
-💬 Conversational memory for personalised, continuous support
-🛡️ Prompt-controlled safety, tone, and response accuracy
-⚡ Low-latency AI responses with LLM integration
-📅 Health routine scheduling with calendar reminders
-📧 Conversation summary export via email
+- 🎯 Goal-based digital health & wellness support
+- 🥗 Image-based food analysis with nutritional estimation
+- 🧠 Mental health guidance & exercise recommendations (educational)
+- 💬 Conversational memory for personalised, continuous support
+- 🛡️ Prompt-controlled safety, tone, and response accuracy
+- ⚡ Low-latency AI responses with LLM integration
+- 📅 Health routine scheduling with calendar reminders
+- 📧 Conversation summary export via email
 
-🤖 Agents
+## 🤖 Agents
 - Supervisor Agent    : Orchestrates workflow and routes queries to appropriate specialised agents
 - Nutrition Agent     : Provides meal planning, calorie calculations, and food image analysis
 - Exercise Agent      : Creates personalised workout plans with video demonstrations from a curated exercise database
@@ -30,11 +30,14 @@ An AI-powered digital health knowledge assistant built with Flowise to answer us
 | Integrations | Google Calendar API, Gmail API |
 
 ## 🖼️ Workflow Diagram
-<img width="1296" height="525" alt="image" src="https://github.com/user-attachments/assets/1aa87349-8d18-4dd8-af03-196ea3bf3a89" />
-
+<img width="1319" height="541" alt="Screenshot 2026-02-01 at 18 57 57" src="https://github.com/user-attachments/assets/e579847e-3bc8-48d2-9ffc-2b35b090f155" />
 
 ## 📚 What I Learned
 - Prompt engineering best practices
 - Designing AI workflows with Flowise
 - Building RAG-based chatbots
 - Applying AI to real-world use cases
+
+## 👤 Author
+Cassandra HEE 
+

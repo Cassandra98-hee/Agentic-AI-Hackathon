@@ -1,0 +1,539 @@
+{
+  "nodes": [
+    {
+      "id": "csvFile_0",
+      "position": {
+        "x": 979.4959586290627,
+        "y": -106.86010588689754
+      },
+      "type": "customNode",
+      "data": {
+        "id": "csvFile_0",
+        "label": "Csv File",
+        "version": 3,
+        "name": "csvFile",
+        "type": "Document",
+        "baseClasses": [
+          "Document"
+        ],
+        "category": "Document Loaders",
+        "description": "Load data from CSV files",
+        "inputParams": [
+          {
+            "label": "Csv File",
+            "name": "csvFile",
+            "type": "file",
+            "fileType": ".csv",
+            "id": "csvFile_0-input-csvFile-file",
+            "display": true
+          },
+          {
+            "label": "Single Column Extraction",
+            "name": "columnName",
+            "type": "string",
+            "description": "Extracting a single column",
+            "placeholder": "Enter column name",
+            "optional": true,
+            "id": "csvFile_0-input-columnName-string",
+            "display": true
+          },
+          {
+            "label": "Additional Metadata",
+            "name": "metadata",
+            "type": "json",
+            "description": "Additional metadata to be added to the extracted documents",
+            "optional": true,
+            "additionalParams": true,
+            "id": "csvFile_0-input-metadata-json",
+            "display": true
+          },
+          {
+            "label": "Omit Metadata Keys",
+            "name": "omitMetadataKeys",
+            "type": "string",
+            "rows": 4,
+            "description": "Each document loader comes with a default set of metadata keys that are extracted from the document. You can use this field to omit some of the default metadata keys. The value should be a list of keys, seperated by comma. Use * to omit all metadata keys execept the ones you specify in the Additional Metadata field",
+            "placeholder": "key1, key2, key3.nestedKey1",
+            "optional": true,
+            "additionalParams": true,
+            "id": "csvFile_0-input-omitMetadataKeys-string",
+            "display": true
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Text Splitter",
+            "name": "textSplitter",
+            "type": "TextSplitter",
+            "optional": true,
+            "id": "csvFile_0-input-textSplitter-TextSplitter",
+            "display": true
+          }
+        ],
+        "inputs": {
+          "textSplitter": "{{recursiveCharacterTextSplitter_0.data.instance}}",
+          "columnName": "",
+          "metadata": "{}",
+          "omitMetadataKeys": ""
+        },
+        "outputAnchors": [
+          {
+            "name": "output",
+            "label": "Output",
+            "type": "options",
+            "description": "Array of document objects containing metadata and pageContent",
+            "options": [
+              {
+                "id": "csvFile_0-output-document-Document|json",
+                "name": "document",
+                "label": "Document",
+                "description": "Array of document objects containing metadata and pageContent",
+                "type": "Document | json"
+              },
+              {
+                "id": "csvFile_0-output-text-string|json",
+                "name": "text",
+                "label": "Text",
+                "description": "Concatenated string from pageContent of documents",
+                "type": "string | json"
+              }
+            ],
+            "default": "document"
+          }
+        ],
+        "outputs": {
+          "output": "document"
+        },
+        "selected": false
+      },
+      "width": 300,
+      "height": 563,
+      "selected": false,
+      "dragging": false,
+      "positionAbsolute": {
+        "x": 979.4959586290627,
+        "y": -106.86010588689754
+      }
+    },
+    {
+      "id": "recursiveCharacterTextSplitter_0",
+      "position": {
+        "x": 562.1922025818292,
+        "y": -388.3752159987506
+      },
+      "type": "customNode",
+      "data": {
+        "id": "recursiveCharacterTextSplitter_0",
+        "label": "Recursive Character Text Splitter",
+        "version": 2,
+        "name": "recursiveCharacterTextSplitter",
+        "type": "RecursiveCharacterTextSplitter",
+        "baseClasses": [
+          "RecursiveCharacterTextSplitter",
+          "TextSplitter",
+          "BaseDocumentTransformer",
+          "Runnable"
+        ],
+        "category": "Text Splitters",
+        "description": "Split documents recursively by different characters - starting with \"\\n\\n\", then \"\\n\", then \" \"",
+        "inputParams": [
+          {
+            "label": "Chunk Size",
+            "name": "chunkSize",
+            "type": "number",
+            "description": "Number of characters in each chunk. Default is 1000.",
+            "default": 1000,
+            "optional": true,
+            "id": "recursiveCharacterTextSplitter_0-input-chunkSize-number",
+            "display": true
+          },
+          {
+            "label": "Chunk Overlap",
+            "name": "chunkOverlap",
+            "type": "number",
+            "description": "Number of characters to overlap between chunks. Default is 200.",
+            "default": 200,
+            "optional": true,
+            "id": "recursiveCharacterTextSplitter_0-input-chunkOverlap-number",
+            "display": true
+          },
+          {
+            "label": "Custom Separators",
+            "name": "separators",
+            "type": "string",
+            "rows": 4,
+            "description": "Array of custom separators to determine when to split the text, will override the default separators",
+            "placeholder": "[\"|\", \"##\", \">\", \"-\"]",
+            "additionalParams": true,
+            "optional": true,
+            "id": "recursiveCharacterTextSplitter_0-input-separators-string",
+            "display": true
+          }
+        ],
+        "inputAnchors": [],
+        "inputs": {
+          "chunkSize": "500",
+          "chunkOverlap": "50",
+          "separators": ""
+        },
+        "outputAnchors": [
+          {
+            "id": "recursiveCharacterTextSplitter_0-output-recursiveCharacterTextSplitter-RecursiveCharacterTextSplitter|TextSplitter|BaseDocumentTransformer|Runnable",
+            "name": "recursiveCharacterTextSplitter",
+            "label": "RecursiveCharacterTextSplitter",
+            "description": "Split documents recursively by different characters - starting with \"\\n\\n\", then \"\\n\", then \" \"",
+            "type": "RecursiveCharacterTextSplitter | TextSplitter | BaseDocumentTransformer | Runnable"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 436,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 562.1922025818292,
+        "y": -388.3752159987506
+      },
+      "dragging": false
+    },
+    {
+      "id": "mongoDBAtlas_0",
+      "position": {
+        "x": 1462.4515588813047,
+        "y": 275.33025770757814
+      },
+      "type": "customNode",
+      "data": {
+        "id": "mongoDBAtlas_0",
+        "label": "MongoDB Atlas",
+        "version": 1,
+        "name": "mongoDBAtlas",
+        "type": "MongoDB Atlas",
+        "baseClasses": [
+          "MongoDB Atlas",
+          "VectorStoreRetriever",
+          "BaseRetriever"
+        ],
+        "category": "Vector Stores",
+        "description": "Upsert embedded data and perform similarity or mmr search upon query using MongoDB Atlas, a managed cloud mongodb database",
+        "inputParams": [
+          {
+            "label": "Connect Credential",
+            "name": "credential",
+            "type": "credential",
+            "credentialNames": [
+              "mongoDBUrlApi"
+            ],
+            "id": "mongoDBAtlas_0-input-credential-credential",
+            "display": true
+          },
+          {
+            "label": "Database",
+            "name": "databaseName",
+            "placeholder": "<DB_NAME>",
+            "type": "string",
+            "id": "mongoDBAtlas_0-input-databaseName-string",
+            "display": true
+          },
+          {
+            "label": "Collection Name",
+            "name": "collectionName",
+            "placeholder": "<COLLECTION_NAME>",
+            "type": "string",
+            "id": "mongoDBAtlas_0-input-collectionName-string",
+            "display": true
+          },
+          {
+            "label": "Index Name",
+            "name": "indexName",
+            "placeholder": "<VECTOR_INDEX_NAME>",
+            "type": "string",
+            "id": "mongoDBAtlas_0-input-indexName-string",
+            "display": true
+          },
+          {
+            "label": "Content Field",
+            "name": "textKey",
+            "description": "Name of the field (column) that contains the actual content",
+            "type": "string",
+            "default": "text",
+            "additionalParams": true,
+            "optional": true,
+            "id": "mongoDBAtlas_0-input-textKey-string",
+            "display": true
+          },
+          {
+            "label": "Embedded Field",
+            "name": "embeddingKey",
+            "description": "Name of the field (column) that contains the Embedding",
+            "type": "string",
+            "default": "embedding",
+            "additionalParams": true,
+            "optional": true,
+            "id": "mongoDBAtlas_0-input-embeddingKey-string",
+            "display": true
+          },
+          {
+            "label": "Mongodb Metadata Filter",
+            "name": "mongoMetadataFilter",
+            "type": "json",
+            "optional": true,
+            "additionalParams": true,
+            "acceptVariable": true,
+            "id": "mongoDBAtlas_0-input-mongoMetadataFilter-json",
+            "display": true
+          },
+          {
+            "label": "Top K",
+            "name": "topK",
+            "description": "Number of top results to fetch. Default to 4",
+            "placeholder": "4",
+            "type": "number",
+            "additionalParams": true,
+            "optional": true,
+            "id": "mongoDBAtlas_0-input-topK-number",
+            "display": true
+          },
+          {
+            "label": "Search Type",
+            "name": "searchType",
+            "type": "options",
+            "default": "similarity",
+            "options": [
+              {
+                "label": "Similarity",
+                "name": "similarity"
+              },
+              {
+                "label": "Max Marginal Relevance",
+                "name": "mmr"
+              }
+            ],
+            "additionalParams": true,
+            "optional": true,
+            "id": "mongoDBAtlas_0-input-searchType-options",
+            "display": true
+          },
+          {
+            "label": "Fetch K (for MMR Search)",
+            "name": "fetchK",
+            "description": "Number of initial documents to fetch for MMR reranking. Default to 20. Used only when the search type is MMR",
+            "placeholder": "20",
+            "type": "number",
+            "additionalParams": true,
+            "optional": true,
+            "id": "mongoDBAtlas_0-input-fetchK-number",
+            "display": true
+          },
+          {
+            "label": "Lambda (for MMR Search)",
+            "name": "lambda",
+            "description": "Number between 0 and 1 that determines the degree of diversity among the results, where 0 corresponds to maximum diversity and 1 to minimum diversity. Used only when the search type is MMR",
+            "placeholder": "0.5",
+            "type": "number",
+            "additionalParams": true,
+            "optional": true,
+            "id": "mongoDBAtlas_0-input-lambda-number",
+            "display": true
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Document",
+            "name": "document",
+            "type": "Document",
+            "list": true,
+            "optional": true,
+            "id": "mongoDBAtlas_0-input-document-Document",
+            "display": true
+          },
+          {
+            "label": "Embeddings",
+            "name": "embeddings",
+            "type": "Embeddings",
+            "id": "mongoDBAtlas_0-input-embeddings-Embeddings",
+            "display": true
+          }
+        ],
+        "inputs": {
+          "document": [
+            "{{csvFile_0.data.instance}}"
+          ],
+          "embeddings": "{{mistralAIEmbeddings_0.data.instance}}",
+          "databaseName": "personal-trainer",
+          "collectionName": "exercise-urls",
+          "indexName": "vector_index",
+          "textKey": "text",
+          "embeddingKey": "embedding",
+          "mongoMetadataFilter": "",
+          "topK": "",
+          "searchType": "similarity",
+          "fetchK": "",
+          "lambda": ""
+        },
+        "outputAnchors": [
+          {
+            "name": "output",
+            "label": "Output",
+            "type": "options",
+            "description": "",
+            "options": [
+              {
+                "id": "mongoDBAtlas_0-output-retriever-MongoDB Atlas|VectorStoreRetriever|BaseRetriever",
+                "name": "retriever",
+                "label": "MongoDB Retriever",
+                "description": "",
+                "type": "MongoDB Atlas | VectorStoreRetriever | BaseRetriever"
+              },
+              {
+                "id": "mongoDBAtlas_0-output-vectorStore-MongoDB Atlas|VectorStore",
+                "name": "vectorStore",
+                "label": "MongoDB Vector Store",
+                "description": "",
+                "type": "MongoDB Atlas | VectorStore"
+              }
+            ],
+            "default": "retriever"
+          }
+        ],
+        "outputs": {
+          "output": "retriever"
+        },
+        "selected": false
+      },
+      "width": 300,
+      "height": 759,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1462.4515588813047,
+        "y": 275.33025770757814
+      },
+      "dragging": false
+    },
+    {
+      "id": "mistralAIEmbeddings_0",
+      "position": {
+        "x": 987.4018498383039,
+        "y": 541.6275594709929
+      },
+      "type": "customNode",
+      "data": {
+        "id": "mistralAIEmbeddings_0",
+        "label": "MistralAI Embeddings",
+        "version": 2,
+        "name": "mistralAIEmbeddings",
+        "type": "MistralAIEmbeddings",
+        "baseClasses": [
+          "MistralAIEmbeddings",
+          "Embeddings"
+        ],
+        "category": "Embeddings",
+        "description": "MistralAI API to generate embeddings for a given text",
+        "inputParams": [
+          {
+            "label": "Connect Credential",
+            "name": "credential",
+            "type": "credential",
+            "credentialNames": [
+              "mistralAIApi"
+            ],
+            "id": "mistralAIEmbeddings_0-input-credential-credential",
+            "display": true
+          },
+          {
+            "label": "Model Name",
+            "name": "modelName",
+            "type": "asyncOptions",
+            "loadMethod": "listModels",
+            "default": "mistral-embed",
+            "id": "mistralAIEmbeddings_0-input-modelName-asyncOptions",
+            "display": true
+          },
+          {
+            "label": "Batch Size",
+            "name": "batchSize",
+            "type": "number",
+            "step": 1,
+            "default": 512,
+            "optional": true,
+            "additionalParams": true,
+            "id": "mistralAIEmbeddings_0-input-batchSize-number",
+            "display": true
+          },
+          {
+            "label": "Strip New Lines",
+            "name": "stripNewLines",
+            "type": "boolean",
+            "default": true,
+            "optional": true,
+            "additionalParams": true,
+            "id": "mistralAIEmbeddings_0-input-stripNewLines-boolean",
+            "display": true
+          },
+          {
+            "label": "Override Endpoint",
+            "name": "overrideEndpoint",
+            "type": "string",
+            "optional": true,
+            "additionalParams": true,
+            "id": "mistralAIEmbeddings_0-input-overrideEndpoint-string",
+            "display": true
+          }
+        ],
+        "inputAnchors": [],
+        "inputs": {
+          "modelName": "mistral-embed",
+          "batchSize": 512,
+          "stripNewLines": true,
+          "overrideEndpoint": ""
+        },
+        "outputAnchors": [
+          {
+            "id": "mistralAIEmbeddings_0-output-mistralAIEmbeddings-MistralAIEmbeddings|Embeddings",
+            "name": "mistralAIEmbeddings",
+            "label": "MistralAIEmbeddings",
+            "description": "MistralAI API to generate embeddings for a given text",
+            "type": "MistralAIEmbeddings | Embeddings"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 430,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 987.4018498383039,
+        "y": 541.6275594709929
+      },
+      "dragging": false
+    }
+  ],
+  "edges": [
+    {
+      "source": "recursiveCharacterTextSplitter_0",
+      "sourceHandle": "recursiveCharacterTextSplitter_0-output-recursiveCharacterTextSplitter-RecursiveCharacterTextSplitter|TextSplitter|BaseDocumentTransformer|Runnable",
+      "target": "csvFile_0",
+      "targetHandle": "csvFile_0-input-textSplitter-TextSplitter",
+      "type": "buttonedge",
+      "id": "recursiveCharacterTextSplitter_0-recursiveCharacterTextSplitter_0-output-recursiveCharacterTextSplitter-RecursiveCharacterTextSplitter|TextSplitter|BaseDocumentTransformer|Runnable-csvFile_0-csvFile_0-input-textSplitter-TextSplitter"
+    },
+    {
+      "source": "csvFile_0",
+      "sourceHandle": "csvFile_0-output-document-Document|json",
+      "target": "mongoDBAtlas_0",
+      "targetHandle": "mongoDBAtlas_0-input-document-Document",
+      "type": "buttonedge",
+      "id": "csvFile_0-csvFile_0-output-document-Document|json-mongoDBAtlas_0-mongoDBAtlas_0-input-document-Document"
+    },
+    {
+      "source": "mistralAIEmbeddings_0",
+      "sourceHandle": "mistralAIEmbeddings_0-output-mistralAIEmbeddings-MistralAIEmbeddings|Embeddings",
+      "target": "mongoDBAtlas_0",
+      "targetHandle": "mongoDBAtlas_0-input-embeddings-Embeddings",
+      "type": "buttonedge",
+      "id": "mistralAIEmbeddings_0-mistralAIEmbeddings_0-output-mistralAIEmbeddings-MistralAIEmbeddings|Embeddings-mongoDBAtlas_0-mongoDBAtlas_0-input-embeddings-Embeddings"
+    }
+  ]
+}

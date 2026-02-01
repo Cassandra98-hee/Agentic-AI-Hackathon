@@ -3,10 +3,6 @@
 ## 🧠 Overview
 An AI-powered digital health knowledge assistant built with Flowise to answer user questions using curated Mental Health, Medical, Nutrition, and Exercise Agents for educational purposes only. It does not provide medical diagnosis, treatment, or personalised medical advice and should not be considered a substitute for professional healthcare.
 
-## 📁 Files
-- `Digital Health Agent Agents.json` – Main agent workflow
-- `upsert-exercise-data.json` – Exercise database setup
-
 ## ✨ Features
 - 🎯 Goal-based digital health & wellness support
 - 🥗 Image-based food analysis with nutritional estimation
@@ -36,11 +32,18 @@ An AI-powered digital health knowledge assistant built with Flowise to answer us
 ## 🖼️ Workflow Diagram
 <img width="1319" height="541" alt="Screenshot 2026-02-01 at 18 57 57" src="https://github.com/user-attachments/assets/e579847e-3bc8-48d2-9ffc-2b35b090f155" />
 
+## 📁 Files
+- `Digital Health Agent Agents.json` – Main agent workflow
+- `upsert-exercise-data.json` – Exercise database setup
+
 ## 📚 What I Learned
 - Prompt engineering best practices
 - Designing AI workflows with Flowise
 - Building RAG-based chatbots
 - Applying AI to real-world use cases
+
+## ⚠️ Disclaimer
+This assistant is for **educational purposes only** 
 
 ## 👤 Author
 Cassandra HEE 
